@@ -21,7 +21,7 @@ Hit the **Star** button if you love this project ⭐️
 - For a `Sell`, the API automatically subtracts shares from the Admin User and adds shares to the Demo User. The Admin User's share count must be equal to or greater than the order's share count for the order to be processed.
 
 ## API
-**POST** `/api/orders`
+### POST `/api/orders`
 
 Sample request:
 ```json
@@ -61,7 +61,9 @@ Sample response:
 }
 ```
 
-**GET** `/api/order/1/status`
+### GET `/api/order/[id]/status`
+
+Sample endpoint: `/api/order/1/status`
 
 Sample request:
 ```json
