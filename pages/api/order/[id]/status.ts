@@ -32,7 +32,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         } else {
           const order = await prisma.order.findUnique({
             where: { id: Number(id) },
-            include: { Share: true },
           })
 
           // check if order exists
@@ -49,21 +48,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             })
           } else {
             res.status(201)
-            res.json({
-              order: {
-                id: order.id,
-                dateCreated: order.dateCreated,
-                username: order.username,
-                price: order.price,
-                shareAmount: order.shareAmount,
-                kind: order.kind,
-                Share: {
-                  id: order.Share.id,
-                  currentOwner: order.Share.username,
-                  currentPrice: order.Share.price,
-                },
-              },
-            })
+            res.json({ order })
           }
         }
         break

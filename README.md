@@ -1,6 +1,6 @@
-# Next.js & Tailwind CSS Starter
+# Mini Landa Tech Stack
 
-A super simple boilerplate for your Next.js web app built with TypeScript, NextJS, React, and TailwindCSS.
+A simple API for Mini Landa utilization.
 
 ## Technologies
 
@@ -8,24 +8,27 @@ A super simple boilerplate for your Next.js web app built with TypeScript, NextJ
 - [TypeScript](https://www.typescriptlang.org/) static types for Component Props, Actions & Services
 - [Tailwind CSS](https://tailwindcss.com/) for the UI
 - [Prisma](https://www.prisma.io/) for the database
-- [Magic](https://magic.link/) for Google authentication
 - [Eslint](https://eslint.org/) & [Prettier](https://prettier.io/) to lint and format the source code.
 
 Hit the **Star** button if you love this project ⭐️
 
-## Usage
+## Project Details
 
-### Prisma
-
-[Connect your database](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/connect-your-database-typescript-postgres) and update your `.env` file within the `prisma` directory.
-
-### Magic
-
-Rename the `.env.example` file to `.env`. Then, [Sign up for Magic](https://dashboard.magic.link/signup) and fill in your `MAGIC_PUBLIC_KEY` and `MAGIC_PRIVATE_KEY`.
+- Hit the **[POST]** `/api/orders` endpoint to create a new `Order`.
+- Hit the **[GET]** `/api/order/[id]/status` endpoint to see the status of an `Order`.
+- A player's share count can be calculated via `User.Shares[0].count`. Since there is only 1 type of share for our project, it will be the first (and only) share linked to the user.
+- For a `Buy`, the API automatically subtracts shares from the Demo User and adds shares to the Admin User. The Demo User's share count must be equal to or greater than the order's share count for the order to be processed.
+- For a `Sell`, the API automatically subtracts shares from the Admin User and adds shares to the Demo User. The Admin User's share count must be equal to or greater than the order's share count for the order to be processed.
 
 ### Running Locally
 
 Install dependencies
+
+```
+yarn
+```
+
+or
 
 ```
 npm install
@@ -34,12 +37,11 @@ npm install
 For development
 
 ```
+yarn dev
+```
+
+or
+
+```
 npm run dev
-```
-
-For production
-
-```
-npm run build
-npm start
 ```

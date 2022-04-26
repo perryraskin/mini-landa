@@ -28,10 +28,8 @@ model Order {
   username    String?
   User        User?    @relation(fields: [username], references: [username])
   price       Decimal  @default(0) @db.Decimal(10, 2)
-  shareAmount Int      @default(0)
+  shareCount  Int      @default(0)
   kind        String?
-  shareId     Int?
-  Share       Share?   @relation(fields: [shareId], references: [id])
 }
 
 model Share {
@@ -39,6 +37,5 @@ model Share {
   dateCreated DateTime @default(now())
   username    String?
   User        User?    @relation(fields: [username], references: [username])
-  price       Decimal  @default(0) @db.Decimal(10, 2)
-  Orders      Order[]
+  count       Int      @default(0)
 }

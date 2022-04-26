@@ -12,7 +12,7 @@ export interface Order {
   username: string
   User: User
   price: number
-  shareAmount: number
+  shareCount: number
   kind: string
 }
 
@@ -20,6 +20,5 @@ export interface Share {
   id: number
   username: string
   User: User
-  price: number
-  Orders: Order[]
+  count: number
 }
