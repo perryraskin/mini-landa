@@ -2,9 +2,6 @@ import { NextPage } from "next"
 import Head from "next/head"
 import React, { useState, useEffect, useContext } from "react"
 
-import MenuBar from "./MenuBar"
-import Footer from "./Footer"
-
 interface Props {
   children: any
 }
@@ -27,7 +24,7 @@ const Layout: NextPage<Props> = ({ children }) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
-        <title>Next.js TailwindCSS Starter</title>
+        <title>Mini Landa Tech Stack</title>
         <meta
           name="description"
           content="A Shopping Cart built with TypeScript, NextJS, React, Apollo Client, Shopify Storefront GraphQL API, and TailwindCSS."
@@ -36,13 +33,11 @@ const Layout: NextPage<Props> = ({ children }) => {
       <div className="antialiased text-gray-900">
         <div className="h-screen flex overflow-hidden">
           <div className="flex-1 flex-col relative z-0 overflow-y-auto">
-            <MenuBar />
             <br />
             <br />
             <br />
             <br />
             {children}
-            <Footer />
           </div>
         </div>
       </div>
